@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 2</title>
+</head>
+<body>
+  <script>
+    // Abrir nueva ventana
+    let nuevaVentana = window.open('https://google.com', 'Google', 'width=600, height=450')
+    // Cambiar el tamaño de la ventana
+    setTimeout(()=> {
+      nuevaVentana.resizeTo(800, 600)
+      console.log('Ventana redimensionada a 800 x 600')
+    }, 2000)
+  </script>
+</body>
+</html>

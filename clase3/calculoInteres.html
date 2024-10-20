@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo del interés</title>
+</head>
+<body>
+  <h1>Cálculo del interés</h1>
+  <form id="formulario">
+    <label for="capital">Capital inicial:</label>
+    <input type="number" id="capital" step="0.01" required><br>
+    <label for="interes">Tasa de interés (%):</label>
+    <input type="number" id="interes" step="0.01" required><br>
+    <label for="num">Número de años:</label>
+    <input type="number" id="num" required><br>
+    <button>Calcular</button>
+  </form>
+  <h2>Resultados</h2>
+  <div id="mensaje"></div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=>{
+      e.preventDefault()
+      let capital = parseFloat(document.querySelector('#capital').value)
+      let interes = parseFloat(document.querySelector('#interes').value)/100
+      let num = parseInt(document.querySelector('#num').value)
+
+      let resultado = ''
+      for (let i = 1; i <= num; i++) {
+        capital += capital * interes
+        resultado += `Año ${i}: $${capital.toFixed(2)} <br>`
+      }
+      document.querySelector('#mensaje').innerHTML = resultado
+    })
+  </script>
+</body>
+</html>

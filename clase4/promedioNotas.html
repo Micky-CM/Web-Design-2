@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de estudiantes</title>
+</head>
+<body>
+  <h1>Registro de estudiantes</h1>
+
+  <label for="numEstudiantes">¿Cuántos estudiantes desea registrar?: </label><br>
+  <input type="number" id="numEstudiantes" min="1" required><br>
+  <button id="registrar">Registrar estudiantes</button>
+
+  <h2>Resultados</h2>
+  <div id="resultado"></div>
+
+  <script>
+    function obtenerDatosEstudiantes(n) {
+      let estudiantes = []
+      for (let i = 0; i < n; i++) {
+        let nombre = prompt(`Ingrese el nombre del estudiante ${i+1}:`)
+        let apellido = prompt(`Ingrese el apellido del estudiante ${i+1}:`)
+        let nota1 = parseFloat(prompt(`Ingrese la primera nota de ${nombre} ${apellido}:`))
+        let nota2 = parseFloat(prompt(`Ingrese la segunda nota de ${nombre} ${apellido}:`))
+        let nota3 = parseFloat(prompt(`Ingrese la tercera nota de ${nombre} ${apellido}:`))
+
+        let promedio = calcularPromedio(nota1, nota2, nota3)
+        estudiantes.push({
+          nombre: nombre,
+          apellido: apellido,
+          notas: [nota1, nota2, nota3],
+          promedio: promedio
+        })
+      }
+      return estudiantes
+    }
+    function calcularPromedio(n1, n2, n3) {
+      return (n1+n2+n3)/3
+    }
+    function mostrarResultados(estudiantes) {
+      let resultadoDiv = document.getElementById('resultado')
+      estudiantes.forEach(estudiante => {
+        resultadoDiv.innerHTML += `Estudiante: ${estudiante.nombre} ${estudiante.apellido}<br>`
+        resultadoDiv.innerHTML += `Notas: ${estudiante.notas.join(', ')}<br>`
+        resultadoDiv.innerHTML += `Promedio: ${estudiante.promedio.toFixed(2)}<br><br>`
+      });
+    }
+    document.getElementById('registrar').addEventListener('click', ()=> {
+      let n = parseInt(document.getElementById('numEstudiantes').value)
+      if(n>0) {
+        let estudiantes = obtenerDatosEstudiantes(n)
+        mostrarResultados(estudiantes)
+      } else {
+        alert('Por favor ingrese un número válido de estudiantes')
+      }
+    })
+  </script>
+</body>
+</html>

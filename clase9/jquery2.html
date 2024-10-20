@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <input type="text" id="newItem" placeholder="Nuevo elemento">
+  <button id="add">Agregar</button>
+  <ul id="myList"></ul>
+
+  <script>
+    $(document).ready(function() {
+      $('#add').click(function() {
+        var newItem = $('#newItem').val()
+        if(newItem !== '') {
+          $('<li>'+newItem+'<button class="delete">Eliminar</button></li>').appendTo('#myList')
+          $('#newItem').value('')
+        }
+      })
+
+      $('#myList').on('click', '.delete', function() {
+        $(this).parent().remove()
+      })
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Ejercicio 7</title>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Ejercicio 7</h1>
+    <h2>Calcular ecuación de segundo grado</h2>
+    <img src="img/ejercicio7.png" alt="ecuación">
+    <form id="formulario">
+      <fieldset>
+        <label for="a">Introduzca el valor de a: </label>
+        <input type="number" id="a" required>
+      </fieldset>
+      <fieldset>
+        <label for="b">Introduzca el valor de b: </label>
+        <input type="number" id="b" required>
+      </fieldset>
+      <fieldset>
+        <label for="c">Introduzca el valor de c: </label>
+        <input type="number" id="c" required>
+      </fieldset>
+      <button>Calcular</button>
+    </form>
+    <span id="mensaje"></span>
+  </div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=>{
+      e.preventDefault()
+      let a = parseInt(document.getElementById('a').value)
+      let b = parseInt(document.getElementById('b').value)
+      let c = parseInt(document.getElementById('c').value)
+
+      let resultado = calcular(a, b, c)
+      document.getElementById('mensaje').innerHTML = resultado
+    })
+
+    function calcular(a, b, c) {
+      if (a === 0) {
+        return "El valor de 'a' debe ser diferente de 0"
+      } else {
+        let discriminante = Math.pow(b,2)-4*a*c
+        if (discriminante > 0) {
+            let x1 = (-b+Math.sqrt(discriminante))/(2*a)
+            let x2 = (-b-Math.sqrt(discriminante))/(2*a)
+            return `La ecuación tiene dos soluciones reales: <br>x1 = ${x1.toFixed(2)} <br>x2 = ${x2.toFixed(2)}`
+        } else if (discriminante === 0) {
+            let x = -b/(2*a)
+            return `La ecuación tiene una solución real: <br>x = ${x.toFixed(2)}`
+        } else {
+            let parteReal = -b/(2*a)
+            let parteImaginaria = `√${discriminante}`
+            return `La ecuación tiene dos soluciones complejas: <br>x1 = ${parteReal.toFixed(2)} ${parteImaginaria} <br>x2 = ${parteReal} ${parteImaginaria}`
+        }
+      }
+    }
+  </script>
+</body>
+</html>

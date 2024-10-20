@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Ejercicio 10</title>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Ejercicio 10</h1>
+    <h2>Calcular cotangente, secante y cosecante</h2>
+    <form id="formulario">
+      <fieldset>
+        <label for="grados">Introduzca el valor del ángulo en grados: </label>
+        <input type="number" id="grados" step="0.01" required>
+      </fieldset>
+      <button>Calcular</button>
+    </form>
+    <span id="mensaje"></span>
+  </div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=> {
+      e.preventDefault()
+      let grados = parseFloat(document.getElementById('grados').value)
+
+      let resultado = calcular(grados)
+      document.getElementById('mensaje').innerHTML = resultado
+    })
+
+    function calcular(grados){
+      let radianes = grados*(Math.PI/180)
+
+      let seno = Math.sin(radianes)
+      let coseno = Math.cos(radianes)
+      let tangente = Math.tan(radianes)
+
+      const tolerancia = 1e-10
+      let cotangente, secante, cosecante
+
+      if (Math.abs(seno) < tolerancia) {
+          cosecante = 'El valor de cosecante para este ángulo es indefinido'
+      } else {
+          cosecante = (1 / seno).toFixed(2)
+      }
+
+      if (Math.abs(coseno) < tolerancia) {
+          secante = 'El valor de secante para este ángulo es indefinido'
+      } else {
+          secante = (1 / coseno).toFixed(2)
+      }
+
+      if (Math.abs(tangente) < tolerancia) {
+          cotangente = 'El valor de cotangente para este ángulo es indefinido'
+      } else {
+          cotangente = (1 / tangente).toFixed(2)
+      }
+
+      return `
+        Para el ángulo de ${grados}° se tienen los siguientes resultados:<br>
+        Cotangente: ${cotangente}<br>
+        Secante: ${secante}<br>
+        Cosecante: ${cosecante}
+      `
+    }
+  </script>
+</body>
+</html>

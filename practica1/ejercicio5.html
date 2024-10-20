@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Ejercicio 5</title>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Ejercicio 5</h1>
+    <h2>Calcular bonificación</h2>
+    <form id="formulario">
+      <fieldset>
+        <label for="haber">Introduzca el haber básico: </label>
+        <input type="number" id="haber" step="0.01" required>
+      </fieldset>
+      <fieldset>
+        <label for="estadoCivil">Elija el estado civil: </label>
+        <select id="estadoCivil">
+          <option value="soltero">Soltero(a)</option>
+          <option value="casado">Casado(a)</option>
+        </select>
+      </fieldset>
+      <button>Calcular</button>
+    </form>
+    <span id="bonificacion"></span>
+    <span id="total"></span>
+  </div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=> {
+      e.preventDefault()
+      let haber = parseFloat(document.getElementById('haber').value)
+      let estadoCivil = document.getElementById('estadoCivil').value
+
+      let resultado = determinar(haber, estadoCivil)
+      document.getElementById('bonificacion').innerHTML = `Su bonificación es de: Bs. ${resultado} <br>`
+      document.getElementById('total').innerHTML = `Total a pagar: Bs. ${haber+resultado}`
+    })
+
+    function determinar(haber, estadoCivil){
+      let bonificacion = estadoCivil === 'casado' ? 0.09 : 0.05
+      return haber*bonificacion
+    }
+  </script>
+</body>
+</html>

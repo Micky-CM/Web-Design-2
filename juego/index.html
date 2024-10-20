@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Juego</title>
+</head>
+<body>
+  <h1>Juego</h1>
+  <p>Puntos: <span id="puntaje">0</span></p>
+  <div id="juego">
+    <div class="elemento" id="jugador">
+      <img src="img/boy.png" alt="jugador">
+    </div>
+    <div class="elemento" id="recompensa">
+      <img src="img/candy.png" alt="dulce">
+    </div>
+    <div class="elemento" id="oponente">
+      <img src="img/pumpkin.png" alt="calabaza">
+    </div>
+  </div>
+
+  <div id="bienvenida" class="modal">
+    <h2>Bienvenido al Juego</h2>
+    <p>Debes recolectar la mayor cantidad de dulces, pero ten cuidado con la calabaza</p>
+    <button id="iniciarJuego">Inciar juego</button>
+  </div>
+
+  <div id="fin-juego" class="modal hidden">
+    <h2>Perdiste</h2>
+    <button id="reiniciarJuego">Volver a jugar</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

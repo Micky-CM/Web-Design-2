@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Ejercicio 4</title>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Ejercicio 4</h1>
+    <h2>Determinar si un número es par o impar</h2>
+    <form id="formulario">
+      <fieldset>
+        <label for="numero">Introduzca un número entero: </label>
+        <input type="number" id="numero" required>
+      </fieldset>
+      <button>Determinar</button>
+    </form>
+    <span id="mensaje"></span>
+  </div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=> {
+      e.preventDefault()
+      let numero = parseInt(document.getElementById('numero').value)
+
+      let resultado = determinar(numero)
+      document.getElementById('mensaje').innerHTML = resultado
+    })
+
+    function determinar(numero){
+      return numero%2 === 0 ? `El número ${numero} es par.` : `El número ${numero} es impar.`
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificación de Intérvalos</title>
+</head>
+<body>
+  <h1>Verificación de Intérvalos</h1>
+  <form id="formulario">
+    <label for="numero">Ingrese un número entero:</label>
+    <input type="number" id="numero" required>
+    <button>Verificar</button>
+  </form>
+  <span id="mensaje"></span>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=>{
+      e.preventDefault()
+      const numero = parseInt(document.getElementById('numero').value)
+      const mensaje = document.getElementById('mensaje')
+
+      if (numero >= 1 && numero <= 10) {
+        mensaje.textContent = 'El número está en el intérvalo [1-10]'
+      } else if (numero >= 11 && numero <= 20) {
+        mensaje.textContent = 'El número está en el intérvalo [11-20]'
+      } else if(numero >= 21 && numero <= 30) {
+        mensaje.textContent = 'El número está en el intérvalo [21-30]'
+      } else {
+        mensaje.textContent = 'El número no pertenece a ningún intérvalo'
+      }
+    })
+  </script>
+</body>
+</html>

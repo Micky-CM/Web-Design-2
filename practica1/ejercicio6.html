@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Ejercicio 6</title>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Ejercicio 6</h1>
+    <h2>Verificación de Intérvalos</h2>
+    <img src="img/ejercicio6.png" alt="intervalo">
+    <form id="formulario">
+      <fieldset>
+        <label for="numero">Introduzca un número entero: </label>
+        <input type="number" id="numero" required>
+      </fieldset>
+      <button>Determinar</button>
+    </form>
+    <span id="mensaje"></span>
+  </div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=> {
+      e.preventDefault()
+      let numero = parseInt(document.getElementById('numero').value)
+
+      let resultado = determinar(numero)
+      document.getElementById('mensaje').innerHTML = resultado
+    })
+
+    function determinar(numero){
+      if (numero >= 1 && numero <= 10) {
+          return "El número está entre 1 y 10"
+      } else if (numero > 10 && numero <= 20) {
+          return "El número está entre 11 y 20"
+      } else if (numero > 20 && numero <= 30) {
+          return "El número está entre 21 y 30"
+      } else if (numero > 30 && numero <= 40) {
+          return "El número está entre 31 y 40"
+      } else if (numero > 40 && numero <= 50) {
+          return "El número está entre 41 y 50"
+      } else if (numero > 50 && numero <= 60) {
+          return "El número está entre 51 y 60"
+      } else if (numero > 60 && numero <= 70) {
+          return "El número está entre 61 y 70"
+      } else if (numero > 70 && numero <= 80) {
+          return "El número está entre 71 y 80"
+      } else if (numero > 80 && numero <= 90) {
+          return "El número está entre 81 y 90"
+      } else if (numero > 90 && numero <= 100) {
+          return "El número está entre 91 y 100"
+      } else {
+          return "El número está fuera del intérvalo entre 1 y 100"
+      }
+    }
+  </script>
+</body>
+</html>

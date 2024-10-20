@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3</title>
+</head>
+<body>
+  <h1>Título principal</h1>
+  <p>Elemento visible</p>
+  <button>Ocultar elemento</button>
+
+  <script>
+    document.querySelector('button').addEventListener('click', ()=> {
+      const elemento = document.querySelector('p')
+        elemento.style.display = 'none';
+    })
+  </script>
+</body>
+</html>

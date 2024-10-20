@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Ejercicio 9</title>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Ejercicio 9</h1>
+    <h2>Determinar el tipo de triángulo</h2>
+    <form id="formulario">
+      <fieldset>
+        <label for="a">Introduzca el valor del lado a: </label>
+        <input type="number" id="a" step="0.01" required>
+      </fieldset>
+      <fieldset>
+        <label for="b">Introduzca el valor del lado b: </label>
+        <input type="number" id="b" step="0.01" required>
+      </fieldset>
+      <fieldset>
+        <label for="c">Introduzca el valor del lado c: </label>
+        <input type="number" id="c" step="0.01" required>
+      </fieldset>
+      <button>Determinar</button>
+    </form>
+    <span id="mensaje"></span>
+  </div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=>{
+      e.preventDefault()
+      let a = parseFloat(document.getElementById('a').value)
+      let b = parseFloat(document.getElementById('b').value)
+      let c = parseFloat(document.getElementById('c').value)
+
+      let resultado = determinarTriangulo(a, b, c)
+      document.getElementById('mensaje').innerHTML = resultado
+    })
+
+    function determinarTriangulo(a, b, c) {
+      if (a + b > c && a + c > b && b + c > a) {
+        if (a === b && b === c) {
+            return 'Los lados forman un triángulo equilátero'
+        }
+        else if (a === b || b === c || a === c) {
+            return 'Los lados forman un triángulo isósceles'
+        }
+        else {
+            return 'Los lados forman un triángulo escaleno'
+        }
+    } else {
+        return 'Los lados no forman un triángulo'
+    }
+    }
+  </script>
+</body>
+</html>

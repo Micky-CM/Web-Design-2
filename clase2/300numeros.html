@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>300 números</title>
+</head>
+<body>
+  <h1>Primeros 300 números</h1>
+  <div id="numeros"></div>
+  <script>
+    let salida = ""
+    for (let i = 1; i <= 300; i++) {
+      if(i%3 === 0){
+        salida += i + "<br>"
+      } else{
+        salida += i + "\t" // Agrega tabulacion
+      }
+      document.getElementById('numeros').innerHTML = salida
+    }
+  </script>
+</body>
+</html>

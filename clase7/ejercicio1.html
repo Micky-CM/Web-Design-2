@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 1</title>
+</head>
+<body>
+  <h1>Título principal</h1>
+  <button>Cambiar texto</button>
+
+  <script>
+    document.querySelector('button').addEventListener('click', ()=> {
+      const titulo = document.querySelector('h1')
+      titulo.textContent = 'Título cambiado'
+    })
+  </script>
+</body>
+</html>

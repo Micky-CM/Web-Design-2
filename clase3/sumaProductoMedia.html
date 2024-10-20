@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo de suma, producto y media</title>
+</head>
+<body>
+  <h1>Cálculo de suma, producto y media</h1>
+  <form id="formulario">
+    <label for="numeros">Ingrese una lista de números separados por comas (,): </label><br>
+    <input type="text" id="numeros" placeholder="Ejemplo: 1,2,3,4,5" required><br>
+    <button>Calcular</button>
+  </form>
+  <h2>Resultados</h2>
+  <span id="suma"></span>
+  <span id="producto"></span>
+  <span id="media"></span>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=>{
+      e.preventDefault()
+      let entrada = document.querySelector('#numeros').value
+      let numeros = entrada.split(',').map((num)=>{
+        return Number(num)
+      })
+      let cantidad = numeros.length
+      let suma = 0
+      let producto = 1
+
+      for (let i = 0; i < cantidad; i++) {
+        suma += numeros[i]
+        producto *= numeros[i]
+      }
+      let media = suma / cantidad
+      // Mostrar los resultados en HTML
+      document.querySelector('#suma').textContent = `Suma: ${suma} <br>`
+      document.querySelector('#producto').textContent = `Producto: ${producto} <br>`
+      document.querySelector('#media').textContent = `Media: ${media.toFixed(2)} <br>`
+    })
+  </script>
+</body>
+</html>

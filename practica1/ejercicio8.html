@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Ejercicio 8</title>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Ejercicio 8</h1>
+    <h2>Meses del año</h2>
+    <form id="formulario">
+      <fieldset>
+        <label for="mes">Elija un mes: </label>
+        <select id="mes">
+          <option value="enero">Enero</option>
+          <option value="febrero">Febrero</option>
+          <option value="marzo">Marzo</option>
+          <option value="abril">Abril</option>
+          <option value="mayo">Mayo</option>
+          <option value="junio">Junio</option>
+          <option value="julio">Julio</option>
+          <option value="agosto">Agosto</option>
+          <option value="septiembre">Septiembre</option>
+          <option value="octubre">Octubre</option>
+          <option value="noviembre">Noviembre</option>
+          <option value="diciembre">Diciembre</option>
+        </select>
+      </fieldset>
+      <button>Elegir</button>
+    </form>
+    <span id="mensaje"></span>
+  </div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=> {
+      e.preventDefault()
+      let mes = document.getElementById('mes').value
+
+      let resultado = procesar(mes)
+      document.getElementById('mensaje').innerHTML = resultado
+    })
+
+    function procesar(mes){
+      return mes === 'septiembre' ? 'Es el mes de la primavera' : 'Todos gozan en el mes de septiembre'
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Ejercicio 3</title>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Ejercicio 3</h1>
+    <h2>Crédito para línea telefónica</h2>
+    <form id="formulario">
+      <fieldset>
+        <label for="credito">Monto del crédito $us: </label>
+        <input type="number" id="credito" step="0.01" required>
+      </fieldset>
+      <fieldset>
+        <label for="entrada">Monto de entrada $us: </label>
+        <input type="number" id="entrada" step="0.01" required>
+      </fieldset>
+      <fieldset>
+        <label for="plazo">Plazo en años: </label>
+        <input type="number" id="plazo" min="1" required>
+      </fieldset>
+
+      <button>Calcular cuotas</button>
+    </form>
+    <span id="mensaje"></span>
+  </div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', (e)=> {
+      e.preventDefault()
+      let credito = parseFloat(document.getElementById('credito').value)
+      let entrada = parseFloat(document.getElementById('entrada').value)
+      let plazo = parseInt(document.getElementById('plazo').value)*12
+
+      let resultado = calcularPagosMensuales(credito, entrada, plazo)
+      document.getElementById('mensaje').innerHTML = `Monto de cuota mensual: $us. ${resultado.toFixed(2)}`
+    })
+
+    function calcularPagosMensuales(credito, entrada, plazo){
+      return (credito-entrada)/plazo
+    }
+  </script>
+</body>
+</html>

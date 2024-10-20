@@ -1,0 +1,59 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: purple;
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 2px solid black;
+  z-index: 10;
+}
+#juego{
+  position: relative;
+  overflow: hidden;
+  background: azure;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+img{
+  width: 100%;
+  height: 100%;
+}
+.elemento{
+  position: absolute;
+  object-fit: cover;
+}
+#jugador{
+  width: 40px;
+  height: 40px;
+}
+#recompensa{
+  width: 30px;
+  height: 30px;
+}
+#oponente{
+  width:50px;
+  height:50px;
+}
+#mensaje{
+  display: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  color: red;
+  margin-top: 20px;
+}

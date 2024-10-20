@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Número mayor y menor</title>
+</head>
+<body>
+  <h1>Encontrar el número mayor y menor</h1>
+
+  <label for="numeros">Ingrese una lista de números separados por comas (,): </label><br>
+  <input type="text" id="numeros" placeholder="Ejemplo: 1,2,3,4,5" required><br>
+  <button id="calcular">Calcular mayor y menor</button>
+
+  <h2>Resultados</h2>
+  <span id="mayor"></span>
+  <span id="menor"></span>
+
+  <script>
+    function obtenerNumeros() {
+      let entrada = document.getElementById('numeros').value
+      return entrada.split(',').map((num)=> {
+        return Number(num.trim())
+      })
+    }
+
+    function encontrarMayor(numeros){
+      let mayor = numeros[0]
+      for(let i=1; i < numeros.lenght; i++){
+        if(numeros[i] > mayor){
+          mayor = numeros[i]
+        }
+      }
+      return mayor
+    }
+
+    function encontrarMenor(numeros){
+      let menor = numeros[0]
+      for(let i=1; i < numeros.lenght; i++){
+        if(numeros[i] < menor){
+          menor = numeros[i]
+        }
+      }
+      return menor
+    }
+    document.getElementById('calcular').addEventListener('click', ()=> {
+      let numeros = obtenerNumeros()
+      let mayor = encontrarMayor(numeros)
+      let menor = encontrarMenor(numeros)
+      document.getElementById('mayor').textContent = `El número mayor es: ${mayor} <br>`
+      document.getElementById('menor').textContent = `El número menor es: ${menor}`
+    })
+  </script>
+</body>
+</html>
